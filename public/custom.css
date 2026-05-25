@@ -1,69 +1,118 @@
-/* Amos — custom UI tweaks layered on top of Chainlit 1.3 */
+/* Amos — custom UI tweaks layered on Chainlit 1.3 (dark theme) */
 
 /* ============================================================
-   1) Header logo — make it visibly bigger
+   1) Header logo — large, full-width, no clipping
    ============================================================ */
+header,
+header > *,
+header > div,
+header a,
+header a:has(> img),
+header div:has(> img) {
+  overflow: visible !important;
+  max-width: none !important;
+}
+
+header img,
 header img[src*="logo"],
-header img[alt*="logo" i],
-header a img {
-  height: 44px !important;
-  max-height: 44px !important;
+header img[alt*="logo" i] {
+  height: 56px !important;
+  max-height: 56px !important;
   width: auto !important;
-}
-/* Header itself: a touch of breathing room */
-header {
-  padding: 8px 16px !important;
-  min-height: 64px !important;
-}
-/* Logo cursor + hover */
-header img[src*="logo"],
-header img[alt*="logo" i],
-header a img {
+  max-width: 360px !important;
+  min-width: 260px !important;
+  object-fit: contain !important;
   cursor: pointer;
   transition: opacity 120ms ease;
 }
-header img[src*="logo"]:hover,
-header img[alt*="logo" i]:hover,
-header a img:hover {
-  opacity: 0.85;
+header img:hover { opacity: 0.85; }
+
+/* Give the header itself enough vertical room for the bigger logo */
+header {
+  padding: 10px 16px !important;
+  min-height: 76px !important;
+  align-items: center !important;
 }
 
 /* ============================================================
-   2) Welcome banner (injected by custom.js above the starters)
+   2) Welcome banner (injected by custom.js) — large, prominent
    ============================================================ */
 #amos-welcome {
   text-align: center;
   font-size: 1.35rem;
-  line-height: 1.55;
-  max-width: 680px;
-  margin: 0 auto 2.5rem auto;
+  line-height: 1.5;
+  max-width: 720px;
+  margin: 0 auto 2rem auto;
   padding: 0 1.5rem;
   color: #ececec;
   font-weight: 300;
   letter-spacing: 0.01em;
+  /* Subtle reveal animation so it doesn't pop in jarringly */
+  animation: amos-fade-in 280ms ease-out;
 }
-#amos-welcome strong {
-  color: #fafafa;
-  font-weight: 500;
+@keyframes amos-fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================================
-   3) Center the empty welcome state vertically (Claude.ai-style)
+   3) Center the welcome + starters block vertically
    ============================================================ */
-/* Whenever starters are visible (empty conversation), give the
-   welcome+starters block a chunk of vertical real estate above
-   so it sits closer to the middle. */
-[class*="starter" i] {
-  margin-top: 18vh;
-}
-/* Tighten the gap between the welcome banner and the starter row */
-#amos-welcome + [class*="starter" i],
-[class*="starter" i] {
-  margin-bottom: 6vh;
+/* Push the empty-state group toward the middle of the viewport */
+#amos-empty-wrap {
+  margin-top: 12vh;
 }
 
 /* ============================================================
-   4) Avatar — render the Amos SVG larger in chat
+   4) Starter cards — no icon, no text truncation, wider boxes
+   ============================================================ */
+/* Hide any icon img inside the starter cards (we no longer set icon=)
+   but Chainlit may still render a placeholder. */
+button img[src*="avatar"],
+[role="button"] img[src*="avatar"],
+button[class*="starter" i] img,
+[class*="starter" i] button img,
+[class*="Starter" i] img {
+  display: none !important;
+}
+
+/* Allow the card text to wrap onto two lines instead of truncating */
+[class*="starter" i] button,
+[class*="Starter" i] button,
+[class*="starter" i] [role="button"],
+[class*="Starter" i] [role="button"] {
+  min-width: 200px !important;
+  width: 200px !important;
+  min-height: 100px !important;
+  padding: 18px 14px !important;
+  white-space: normal !important;
+}
+[class*="starter" i] p,
+[class*="Starter" i] p,
+[class*="starter" i] button p,
+[class*="Starter" i] button p,
+[class*="starter" i] button span,
+[class*="Starter" i] button span {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  -webkit-line-clamp: unset !important;
+  display: block !important;
+  font-size: 0.95rem !important;
+  line-height: 1.35 !important;
+}
+
+/* ============================================================
+   5) Hide Chainlit's empty-state assistant avatar (the lone dog
+   floating above the starters) — the welcome banner replaces it.
+   ============================================================ */
+#amos-empty-wrap > [class*="avatar" i]:first-child,
+[data-test-id="welcome-screen"] > [class*="avatar" i]:first-child {
+  display: none !important;
+}
+
+/* ============================================================
+   6) Avatar in chat replies — render the new dog SVG larger
    ============================================================ */
 img[src*="avatars/amos"] {
   width: 36px !important;

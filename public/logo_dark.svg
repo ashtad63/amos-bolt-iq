@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" preserveAspectRatio="xMinYMid meet">
   <defs>
-    <linearGradient id="purpleGrad-d" gradientUnits="userSpaceOnUse" x1="600" y1="50" x2="0" y2="450">
+    <linearGradient id="purpleGrad-d" gradientUnits="userSpaceOnUse" x1="240" y1="20" x2="0" y2="180">
       <stop offset="0%" stop-color="#80198C"/>
       <stop offset="35%" stop-color="#4B1675"/>
       <stop offset="70%" stop-color="#221A69"/>
       <stop offset="100%" stop-color="#163A8A"/>
     </linearGradient>
-    <linearGradient id="cyanGrad-d" gradientUnits="userSpaceOnUse" x1="0" y1="550" x2="450" y2="0">
+    <linearGradient id="cyanGrad-d" gradientUnits="userSpaceOnUse" x1="0" y1="220" x2="180" y2="0">
       <stop offset="0%" stop-color="#194B9C"/>
       <stop offset="25%" stop-color="#00AEEF"/>
       <stop offset="75%" stop-color="#00AEEF"/>
@@ -14,8 +14,8 @@
     </linearGradient>
   </defs>
 
-  <!-- Predictant P mark (the user's exact SVG, scaled to 600x550 area) -->
-  <g transform="translate(20,25) scale(0.55)">
+  <!-- Predictant P-mark (user's exact paths, scaled 0.22 of original 1100x1000) -->
+  <g transform="translate(10,28) scale(0.22)">
     <path d="M 800,0
              A 300,300 0 0,1 800,600
              L 200,600
@@ -37,6 +37,6 @@
              fill="url(#cyanGrad-d)"/>
   </g>
 
-  <!-- Predictant wordmark to the right of the P mark -->
-  <text x="640" y="395" font-family="Georgia, 'Times New Roman', serif" font-size="290" font-weight="700" fill="#fafafa" letter-spacing="-2">Predictant</text>
+  <!-- "Predictant" wordmark — large, serif, light on dark -->
+  <text x="270" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="180" font-weight="600" fill="#fafafa" letter-spacing="-3">Predictant</text>
 </svg>

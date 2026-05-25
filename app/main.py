@@ -43,26 +43,23 @@ async def on_chat_start() -> None:
 
 @cl.set_starters
 async def starters() -> list[cl.Starter]:
+    # No icons — the cards are text-only to keep them clean.
     return [
         cl.Starter(
             label="What is Bolt iQ?",
             message="What is Bolt iQ and how does it work?",
-            icon="/public/avatars/amos.svg",
         ),
         cl.Starter(
             label="Why choose Predictant?",
             message="Why choose Predictant for bolt-tension measurement?",
-            icon="/public/avatars/amos.svg",
         ),
         cl.Starter(
             label="Bi-wave vs. single-wave",
             message="Compare the bi-wave method to single-wave time-of-flight for bolt preload.",
-            icon="/public/avatars/amos.svg",
         ),
         cl.Starter(
             label="DNV-certified accuracy",
             message="What's the DNV-certified accuracy of Bolt iQ?",
-            icon="/public/avatars/amos.svg",
         ),
     ]
 
