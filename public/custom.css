@@ -3,9 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap");
 
 /* ============================================================
-   1) Logo — Chainlit applies an inline style `max-height: 25px`
-   to the <img alt="logo">. We override with !important on a direct
-   attribute selector (beats non-important inline styles).
+   1) Logo — beat Chainlit's inline max-height:25px with !important
+   on a direct attribute selector.
    ============================================================ */
 img[alt="logo"] {
   height: 72px !important;
@@ -20,15 +19,12 @@ img[alt="logo"] {
 }
 img[alt="logo"]:hover { opacity: 0.85; }
 
-/* Give the logo's MUI parent container room so the bigger image isn't clipped */
 .MuiStack-root:has(> .MuiBox-root > img[alt="logo"]),
 .MuiBox-root:has(> img[alt="logo"]) {
   overflow: visible !important;
   max-width: none !important;
   min-height: 88px !important;
 }
-
-/* Top toolbar / drawer header — match the new logo height */
 .MuiDrawer-root .MuiPaper-root > .MuiStack-root:first-child {
   min-height: 96px !important;
   padding-top: 8px !important;
@@ -36,12 +32,18 @@ img[alt="logo"]:hover { opacity: 0.85; }
 }
 
 /* ============================================================
-   2) Empty-state assistant avatar (MuiAvatar with src=/avatars/default
-   or /avatars/amos). Default-size is 48px; bump to 120px and recenter.
+   2) Empty-state assistant avatar — 128px, with a subtle
+   cyan-to-purple gradient halo using Predictant's brand colors.
    ============================================================ */
 .MuiAvatar-root:has(> img.MuiAvatar-img) {
   width: 128px !important;
   height: 128px !important;
+  position: relative !important;
+  /* Two-layer glow: tight purple ring + soft cyan bloom */
+  box-shadow:
+    0 0 0 2px rgba(94, 44, 144, 0.55),
+    0 0 28px 4px rgba(21, 181, 232, 0.22),
+    0 0 64px 8px rgba(94, 44, 144, 0.12) !important;
 }
 .MuiAvatar-root > img.MuiAvatar-img {
   width: 100% !important;
@@ -49,13 +51,13 @@ img[alt="logo"]:hover { opacity: 0.85; }
   object-fit: cover !important;
 }
 
-/* But shrink the avatar back to ~40px when it appears next to a chat
-   message bubble (so reply lines don't have huge inline avatars). */
+/* In-chat reply avatars stay small (no glow noise next to messages) */
 [class*="message" i] .MuiAvatar-root,
 [class*="Message" i] .MuiAvatar-root,
 .MuiAvatar-root[class*="message" i] {
   width: 40px !important;
   height: 40px !important;
+  box-shadow: none !important;
 }
 
 /* ============================================================
@@ -84,7 +86,12 @@ img[alt="logo"]:hover { opacity: 0.85; }
 }
 
 /* ============================================================
-   4) Starter cards — no icon, no truncation, wider boxes
+   4) Starter cards
+      - hide leftover icons
+      - vertically center the label
+      - brighter borders for contrast against dark background
+      - whiter text (#ececec) to match the welcome message
+      - subtle hover state
    ============================================================ */
 button img[src*="avatar"],
 [role="button"] img[src*="avatar"],
@@ -100,15 +107,32 @@ button img[src*="avatar"],
   min-width: 220px !important;
   width: 220px !important;
   min-height: 110px !important;
-  padding: 18px 14px !important;
+  padding: 16px 14px !important;
   white-space: normal !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 12px !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease !important;
+}
+[class*="starter" i] button:hover,
+[class*="Starter" i] button:hover,
+[class*="starter" i] [role="button"]:hover,
+[class*="Starter" i] [role="button"]:hover {
+  border-color: rgba(255, 255, 255, 0.34) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 [class*="starter" i] p,
 [class*="Starter" i] p,
 [class*="starter" i] button p,
 [class*="Starter" i] button p,
 [class*="starter" i] button span,
-[class*="Starter" i] button span {
+[class*="Starter" i] button span,
+[class*="starter" i] [role="button"] p,
+[class*="Starter" i] [role="button"] p {
   white-space: normal !important;
   overflow: visible !important;
   text-overflow: clip !important;
@@ -116,4 +140,26 @@ button img[src*="avatar"],
   display: block !important;
   font-size: 0.95rem !important;
   line-height: 1.35 !important;
+  color: #ececec !important;
+  text-align: center !important;
+}
+
+/* ============================================================
+   5) Chat input field — faint border for visibility (per design
+   note, lean border-over-fill so dark aesthetic stays intact)
+   ============================================================ */
+/* Target the MUI form-control wrapping the chat textarea */
+.MuiFormControl-root:has(textarea),
+.MuiInputBase-multiline,
+.MuiStack-root:has(> div > .MuiFormControl-root > .MuiInputBase-multiline) {
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 14px !important;
+  transition: border-color 200ms ease, box-shadow 200ms ease !important;
+}
+/* Focus state: subtle purple glow using the brand colors */
+.MuiFormControl-root:has(textarea:focus),
+.MuiInputBase-multiline:focus-within {
+  border-color: rgba(94, 44, 144, 0.55) !important;
+  box-shadow: 0 0 0 3px rgba(94, 44, 144, 0.15),
+              0 0 16px 2px rgba(21, 181, 232, 0.08) !important;
 }
