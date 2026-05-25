@@ -34,6 +34,7 @@ COPY ingest/ ./ingest/
 COPY rag/ ./rag/
 COPY chainlit.md ./
 COPY .chainlit/config.toml ./.chainlit/config.toml
+COPY .chainlit/translations/en-US.json ./.chainlit/translations/en-US.json
 COPY public/ ./public/
 
 # Wiki + chroma — variant-specific. Build context must contain wiki-<variant>/ and chroma-<variant>/.

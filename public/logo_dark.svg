@@ -1,13 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 36" fill="none">
-  <!-- Amos brand mark for dark theme -->
-  <g fill="none" stroke="#fafafa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8 26c0-6 4-11 10-11s10 5 10 11" />
-    <circle cx="14" cy="22" r="1.4" fill="#fafafa" stroke="none" />
-    <circle cx="22" cy="22" r="1.4" fill="#fafafa" stroke="none" />
-    <path d="M16.5 26.5c1 1.2 2.5 1.2 3.5 0" />
-    <path d="M7 18c-1.5-2-1-5 1-6 1.5.5 2.5 2 2.5 4" />
-    <path d="M29 18c1.5-2 1-5-1-6-1.5.5-2.5 2-2.5 4" />
-    <path d="M28 28l5 2.5M28 30.5l5 1.5" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" fill="none">
+  <defs>
+    <linearGradient id="pgrad-d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4FC3F7"/>
+      <stop offset="55%" stop-color="#5E5BE0"/>
+      <stop offset="100%" stop-color="#3B2C7A"/>
+    </linearGradient>
+  </defs>
+  <!-- Stylized "P" composed of two overlapping square outlines -->
+  <g transform="translate(6,6)">
+    <rect x="0" y="14" width="26" height="26" rx="2" fill="none" stroke="url(#pgrad-d)" stroke-width="4"/>
+    <rect x="14" y="0" width="26" height="26" rx="2" fill="none" stroke="url(#pgrad-d)" stroke-width="4"/>
   </g>
-  <text x="44" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#fafafa" letter-spacing="-0.5">Amos</text>
+  <text x="60" y="40" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="600" fill="#fafafa" letter-spacing="0">Predictant</text>
 </svg>

@@ -1,12 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="32" fill="#0f172a"/>
-  <g fill="none" stroke="#fafafa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M18 44c0-9 6-16 14-16s14 7 14 16" />
-    <circle cx="24" cy="40" r="2" fill="#fafafa" stroke="none" />
-    <circle cx="40" cy="40" r="2" fill="#fafafa" stroke="none" />
-    <path d="M28 46c1.5 1.6 4.5 1.6 6 0" />
-    <path d="M14 32c-2.5-3-1.5-7.5 1.5-9 2.5 1 4 3.5 4 6.5" />
-    <path d="M50 32c2.5-3 1.5-7.5-1.5-9-2.5 1-4 3.5-4 6.5" />
-    <circle cx="32" cy="43" r="1" fill="#fafafa" stroke="none" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
+  <!-- Teal circular background -->
+  <circle cx="48" cy="48" r="48" fill="#7BC9C2"/>
+
+  <!-- Golden retriever head (simplified, stylized) -->
+  <g>
+    <!-- Ears -->
+    <ellipse cx="22" cy="40" rx="9" ry="16" fill="#D69248" transform="rotate(-15 22 40)"/>
+    <ellipse cx="74" cy="40" rx="9" ry="16" fill="#D69248" transform="rotate(15 74 40)"/>
+    <!-- Head -->
+    <ellipse cx="48" cy="50" rx="26" ry="28" fill="#F0B860"/>
+    <!-- Snout -->
+    <ellipse cx="48" cy="64" rx="14" ry="12" fill="#F5C97A"/>
+    <!-- Nose -->
+    <ellipse cx="48" cy="58" rx="4.5" ry="3.5" fill="#1a1a1a"/>
+    <!-- Eyes -->
+    <circle cx="38" cy="46" r="2.5" fill="#1a1a1a"/>
+    <circle cx="58" cy="46" r="2.5" fill="#1a1a1a"/>
+    <!-- Eye highlights -->
+    <circle cx="39" cy="45" r="0.7" fill="#fafafa"/>
+    <circle cx="59" cy="45" r="0.7" fill="#fafafa"/>
+    <!-- Mouth opening -->
+    <path d="M40 70 Q48 76 56 70" fill="#7a1f1f" stroke="#1a1a1a" stroke-width="1"/>
+  </g>
+
+  <!-- Bolt in mouth (horizontal, hex head left, threaded shaft right) -->
+  <g transform="translate(0,68)">
+    <!-- Hex head (left) -->
+    <polygon points="14,4 24,0 34,4 34,14 24,18 14,14" fill="#2a2a2a" stroke="#1a1a1a" stroke-width="0.8"/>
+    <!-- Shaft (right) with thread lines -->
+    <rect x="34" y="5" width="48" height="8" fill="#3a3a3a"/>
+    <g stroke="#1a1a1a" stroke-width="0.6">
+      <line x1="38" y1="5" x2="38" y2="13"/>
+      <line x1="42" y1="5" x2="42" y2="13"/>
+      <line x1="46" y1="5" x2="46" y2="13"/>
+      <line x1="50" y1="5" x2="50" y2="13"/>
+      <line x1="54" y1="5" x2="54" y2="13"/>
+      <line x1="58" y1="5" x2="58" y2="13"/>
+      <line x1="62" y1="5" x2="62" y2="13"/>
+      <line x1="66" y1="5" x2="66" y2="13"/>
+      <line x1="70" y1="5" x2="70" y2="13"/>
+      <line x1="74" y1="5" x2="74" y2="13"/>
+      <line x1="78" y1="5" x2="78" y2="13"/>
+    </g>
   </g>
 </svg>

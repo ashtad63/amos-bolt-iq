@@ -1,0 +1,40 @@
+/* Amos — custom UI tweaks layered on top of Chainlit 1.3 */
+
+/* 1) Make the top-left logo look clickable (cursor + subtle hover dim).
+   The actual click-to-home behavior is wired in custom.js. */
+header a[href="/"] img,
+header img[alt*="logo" i],
+header img[src*="logo"] {
+  cursor: pointer;
+  transition: opacity 120ms ease;
+}
+header a[href="/"] img:hover,
+header img[alt*="logo" i]:hover,
+header img[src*="logo"]:hover {
+  opacity: 0.8;
+}
+
+/* 2) On the empty/welcome state, lift the message input up off the very
+   bottom and place it closer to the starters block (more inviting layout).
+   Once a conversation begins (input container loses the empty-state sibling),
+   it returns to the default bottom-pinned position. */
+main:has(.starter-list) [data-step-type="user_message"],
+main:has(.starters),
+main:has([class*="starter" i]) {
+  /* Marker only — children inherit nothing here, the real rule is below */
+}
+
+/* Vertically center the input area when no messages yet */
+div:has(> [class*="starter" i]) {
+  margin-top: 6vh;
+}
+
+/* Padding under the starter row, so the input doesn't sit flush at viewport bottom */
+[class*="starter" i] {
+  margin-bottom: 6vh;
+}
+
+/* Tweak the chat input wrapper — small breathing room above the page bottom */
+form[id*="chat-input"], form:has(textarea[placeholder]) {
+  margin-bottom: 2vh;
+}
