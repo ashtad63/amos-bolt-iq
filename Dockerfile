@@ -42,6 +42,7 @@ COPY chroma-${VARIANT}/ ./chroma/
 
 ENV WIKI_PATH=/app/wiki \
     CHROMA_PATH=/app/chroma \
+    PYTHONPATH=/app \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     BUDGET_STATE_PATH=/app/state/budget.json \

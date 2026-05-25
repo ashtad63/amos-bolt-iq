@@ -21,6 +21,9 @@ chroma-full/
 .env
 .env.local
 .env.*.local
+.env.amos-internal-password
+.env.deploy
+deploy/*.log
 
 # IDE / OS
 .vscode/

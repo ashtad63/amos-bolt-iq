@@ -214,7 +214,12 @@ def _apply_actions(wiki_out: Path, actions: list[dict]) -> None:
 
 def ingest_document(client: OpenAI, system_prompt: str, doc: dict, data_root: Path, wiki_out: Path) -> int:
     """Returns number of actions applied."""
-    pdf_path = data_root / doc["filename"]
+    # Resolution: if doc has "path" (full manifest), use that relative to repo root.
+    # Otherwise (explicit public manifest), use data_root / filename.
+    if "path" in doc and "data/" in doc["path"]:
+        pdf_path = data_root.parent.parent / doc["path"]
+    else:
+        pdf_path = data_root / doc["filename"]
     if not pdf_path.exists():
         console.print(f"  [red]MISSING file[/]: {pdf_path}")
         return 0

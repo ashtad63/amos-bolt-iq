@@ -98,9 +98,21 @@ def chunk_document(source_id: str, source_path: Path) -> list[Chunk]:
 
 
 def chunk_manifest(documents: Iterable[dict], data_root: Path) -> list[Chunk]:
+    """Chunk every doc in the manifest.
+
+    Resolution: if a doc has a "path" field (relative to repo root, e.g.
+    "data/academic/2020-...pdf"), use that. Otherwise fall back to
+    data_root/filename. The full manifest emits "path"; the explicit public
+    manifest does not, so it falls back via data_root=data/predictant/.
+    """
+    repo_root = data_root.parent  # data_root is e.g. data/predictant; parent is data/'s parent → repo root via .. (handled below)
     all_chunks: list[Chunk] = []
     for doc in documents:
-        path = data_root / doc["filename"]
+        if "path" in doc:
+            # path is relative to the repo root
+            path = data_root.parent.parent / doc["path"] if "data/" in doc["path"] else data_root / doc["filename"]
+        else:
+            path = data_root / doc["filename"]
         if not path.exists():
             continue
         all_chunks.extend(chunk_document(doc["id"], path))
