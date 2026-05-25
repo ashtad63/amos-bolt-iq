@@ -61,6 +61,11 @@ def _embed_and_add(client: OpenAI, coll, chunks: list[Chunk], batch_size: int = 
 
 
 def main() -> int:
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ImportError:
+        pass
     parser = argparse.ArgumentParser(description="Embed chunks and store in ChromaDB.")
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--data-root", type=Path, required=True)

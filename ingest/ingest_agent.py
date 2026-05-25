@@ -236,6 +236,11 @@ def ingest_document(client: OpenAI, system_prompt: str, doc: dict, data_root: Pa
 
 
 def main() -> int:
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ImportError:
+        pass
     parser = argparse.ArgumentParser(description="Run the wiki ingest agent over a manifest.")
     parser.add_argument("--manifest", type=Path, required=True, help="Path to manifest_public.json, or 'AUTO' for full.")
     parser.add_argument("--wiki-out", type=Path, required=True, help="Directory to write wiki/ into.")
