@@ -42,3 +42,4 @@ Thumbs.db
 
 # Personal notes — never commit
 docs/interview-talktrack.md
+.env.chainlit-jwt-secret
