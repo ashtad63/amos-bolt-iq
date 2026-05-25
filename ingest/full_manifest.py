@@ -11,7 +11,7 @@ import re
 from pathlib import Path
 
 
-SUPPORTED_SUFFIXES = {".pdf", ".pptx"}
+SUPPORTED_SUFFIXES = {".pdf", ".pptx", ".md", ".markdown", ".txt"}
 
 
 def _stable_id(filename: str) -> str:
