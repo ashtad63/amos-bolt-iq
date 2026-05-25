@@ -45,10 +45,20 @@ def extract_pptx(path: Path) -> str:
     return "\n\n".join(parts)
 
 
+def extract_markdown(path: Path) -> str:
+    """Read a markdown source as-is. Honors [page N] markers already present."""
+    text = path.read_text(encoding="utf-8")
+    if "[page " not in text:
+        text = "[page 1]\n" + text
+    return _sanitize(text)
+
+
 def extract(path: Path) -> str:
     suffix = path.suffix.lower()
     if suffix == ".pdf":
         return extract_pdf(path)
     if suffix == ".pptx":
         return extract_pptx(path)
+    if suffix in (".md", ".markdown", ".txt"):
+        return extract_markdown(path)
     raise ValueError(f"Unsupported file type: {path}")

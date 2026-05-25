@@ -42,6 +42,12 @@
       "filename": "Wind-Europe-2025-Poster.pdf",
       "title": "Wind Europe 2025 — Predictant Poster",
       "kind": "conference-poster"
+    },
+    {
+      "id": "predictant-website-2026-05-25",
+      "filename": "predictant-website-2026-05-25.md",
+      "title": "Predictant Website — 5-page snapshot (2026-05-25)",
+      "kind": "website-snapshot"
     }
   ]
 }
