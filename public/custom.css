@@ -64,10 +64,10 @@ img[alt="logo"]:hover { opacity: 0.85; }
 #amos-welcome {
   text-align: center;
   font-family: "Copernicus", "Source Serif 4", "Source Serif Pro", "Cormorant Garamond", Georgia, serif;
-  font-size: 1.85rem;
-  line-height: 1.35;
+  font-size: 1.5rem;
+  line-height: 1.4;
   letter-spacing: -0.005em;
-  max-width: 780px;
+  max-width: 920px;
   margin: 0 auto 2.5rem auto;
   padding: 0 1.5rem;
   color: #ececec;
