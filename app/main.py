@@ -35,18 +35,10 @@ if ENABLE_PASSWORD_GATE:
 
 @cl.on_chat_start
 async def on_chat_start() -> None:
+    # Welcome message is injected into the empty-state DOM by public/custom.js
+    # so it coexists with the starter buttons (sending a cl.Message here would
+    # suppress starters in Chainlit 1.3).
     cl.user_session.set("history", [])
-
-    # Welcome message. Chainlit's behavior with starters + on_chat_start
-    # varies by version; in 1.3.2 both can coexist (starters render in the
-    # empty welcome panel, on_chat_start message renders above as an Amos turn).
-    welcome = (
-        "Woof — I'm **Amos**, a guide-dog chatbot for ultrasonic bolt-tension "
-        "measurement, with a soft spot for Predictant's Bolt iQ. Ask me anything "
-        "about bolt preload, ultrasonic time-of-flight, DNV certification, or how "
-        "Bolt iQ measures tension directly."
-    )
-    await cl.Message(content=welcome, author="Amos").send()
 
 
 @cl.set_starters
@@ -55,22 +47,22 @@ async def starters() -> list[cl.Starter]:
         cl.Starter(
             label="What is Bolt iQ?",
             message="What is Bolt iQ and how does it work?",
-            icon="/public/dog.svg",
+            icon="/public/avatars/amos.svg",
         ),
         cl.Starter(
-            label="Ultrasonic preload, plain terms",
-            message="How does ultrasonic preload measurement work in plain terms?",
-            icon="/public/dog.svg",
+            label="Why choose Predictant?",
+            message="Why choose Predictant for bolt-tension measurement?",
+            icon="/public/avatars/amos.svg",
+        ),
+        cl.Starter(
+            label="Bi-wave vs. single-wave",
+            message="Compare the bi-wave method to single-wave time-of-flight for bolt preload.",
+            icon="/public/avatars/amos.svg",
         ),
         cl.Starter(
             label="DNV-certified accuracy",
             message="What's the DNV-certified accuracy of Bolt iQ?",
-            icon="/public/dog.svg",
-        ),
-        cl.Starter(
-            label="Bi-wave vs single-wave",
-            message="Compare the bi-wave method to single-wave time-of-flight for bolt preload.",
-            icon="/public/dog.svg",
+            icon="/public/avatars/amos.svg",
         ),
     ]
 

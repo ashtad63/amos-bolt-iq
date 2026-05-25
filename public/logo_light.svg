@@ -1,14 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 600">
   <defs>
-    <linearGradient id="pgrad-l" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4FC3F7"/>
-      <stop offset="55%" stop-color="#5E5BE0"/>
-      <stop offset="100%" stop-color="#2A1F5F"/>
+    <linearGradient id="purpleGrad-l" gradientUnits="userSpaceOnUse" x1="600" y1="50" x2="0" y2="450">
+      <stop offset="0%" stop-color="#80198C"/>
+      <stop offset="35%" stop-color="#4B1675"/>
+      <stop offset="70%" stop-color="#221A69"/>
+      <stop offset="100%" stop-color="#163A8A"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad-l" gradientUnits="userSpaceOnUse" x1="0" y1="550" x2="450" y2="0">
+      <stop offset="0%" stop-color="#194B9C"/>
+      <stop offset="25%" stop-color="#00AEEF"/>
+      <stop offset="75%" stop-color="#00AEEF"/>
+      <stop offset="100%" stop-color="#3D309B"/>
     </linearGradient>
   </defs>
-  <g transform="translate(6,6)">
-    <rect x="0" y="14" width="26" height="26" rx="2" fill="none" stroke="url(#pgrad-l)" stroke-width="4"/>
-    <rect x="14" y="0" width="26" height="26" rx="2" fill="none" stroke="url(#pgrad-l)" stroke-width="4"/>
+
+  <g transform="translate(20,25) scale(0.55)">
+    <path d="M 800,0
+             A 300,300 0 0,1 800,600
+             L 200,600
+             L 200,800
+             L 0,800
+             L 0,400
+             L 800,400
+             A 100,100 0 0,0 800,200
+             Z"
+          fill="url(#purpleGrad-l)"/>
+    <polygon points="0,800
+                     0,1000
+                     600,1000
+                     600,0
+                     800,0
+                     800,200
+                     400,200
+                     400,800"
+             fill="url(#cyanGrad-l)"/>
   </g>
-  <text x="60" y="40" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="600" fill="#1a1a3a" letter-spacing="0">Predictant</text>
+
+  <text x="640" y="395" font-family="Georgia, 'Times New Roman', serif" font-size="290" font-weight="700" fill="#1a1a3a" letter-spacing="-2">Predictant</text>
 </svg>

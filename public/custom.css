@@ -1,40 +1,71 @@
 /* Amos — custom UI tweaks layered on top of Chainlit 1.3 */
 
-/* 1) Make the top-left logo look clickable (cursor + subtle hover dim).
-   The actual click-to-home behavior is wired in custom.js. */
-header a[href="/"] img,
+/* ============================================================
+   1) Header logo — make it visibly bigger
+   ============================================================ */
+header img[src*="logo"],
 header img[alt*="logo" i],
-header img[src*="logo"] {
+header a img {
+  height: 44px !important;
+  max-height: 44px !important;
+  width: auto !important;
+}
+/* Header itself: a touch of breathing room */
+header {
+  padding: 8px 16px !important;
+  min-height: 64px !important;
+}
+/* Logo cursor + hover */
+header img[src*="logo"],
+header img[alt*="logo" i],
+header a img {
   cursor: pointer;
   transition: opacity 120ms ease;
 }
-header a[href="/"] img:hover,
+header img[src*="logo"]:hover,
 header img[alt*="logo" i]:hover,
-header img[src*="logo"]:hover {
-  opacity: 0.8;
+header a img:hover {
+  opacity: 0.85;
 }
 
-/* 2) On the empty/welcome state, lift the message input up off the very
-   bottom and place it closer to the starters block (more inviting layout).
-   Once a conversation begins (input container loses the empty-state sibling),
-   it returns to the default bottom-pinned position. */
-main:has(.starter-list) [data-step-type="user_message"],
-main:has(.starters),
-main:has([class*="starter" i]) {
-  /* Marker only — children inherit nothing here, the real rule is below */
+/* ============================================================
+   2) Welcome banner (injected by custom.js above the starters)
+   ============================================================ */
+#amos-welcome {
+  text-align: center;
+  font-size: 1.35rem;
+  line-height: 1.55;
+  max-width: 680px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1.5rem;
+  color: #ececec;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+#amos-welcome strong {
+  color: #fafafa;
+  font-weight: 500;
 }
 
-/* Vertically center the input area when no messages yet */
-div:has(> [class*="starter" i]) {
-  margin-top: 6vh;
+/* ============================================================
+   3) Center the empty welcome state vertically (Claude.ai-style)
+   ============================================================ */
+/* Whenever starters are visible (empty conversation), give the
+   welcome+starters block a chunk of vertical real estate above
+   so it sits closer to the middle. */
+[class*="starter" i] {
+  margin-top: 18vh;
 }
-
-/* Padding under the starter row, so the input doesn't sit flush at viewport bottom */
+/* Tighten the gap between the welcome banner and the starter row */
+#amos-welcome + [class*="starter" i],
 [class*="starter" i] {
   margin-bottom: 6vh;
 }
 
-/* Tweak the chat input wrapper — small breathing room above the page bottom */
-form[id*="chat-input"], form:has(textarea[placeholder]) {
-  margin-bottom: 2vh;
+/* ============================================================
+   4) Avatar — render the Amos SVG larger in chat
+   ============================================================ */
+img[src*="avatars/amos"] {
+  width: 36px !important;
+  height: 36px !important;
 }
