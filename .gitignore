@@ -43,3 +43,6 @@ Thumbs.db
 # Personal notes — never commit
 docs/interview-talktrack.md
 .env.chainlit-jwt-secret
+
+# Auto-generated full manifest — rebuilt from data/ on demand
+ingest/manifest_full.generated.json

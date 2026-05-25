@@ -2,7 +2,9 @@
 
 > A guide-dog chatbot for engineers exploring ultrasonic bolt-tension measurement and [Predictant's Bolt iQ](https://predictant.io/).
 
-**Live demo (public):** [`https://ca-amos-public-eus2.wonderfulwave-798c6b35.eastus2.azurecontainerapps.io/`](https://ca-amos-public-eus2.wonderfulwave-798c6b35.eastus2.azurecontainerapps.io/)
+**Live demos:**
+- **Public** (open URL — 7 cleared Predictant docs): [`https://ca-amos-public-eus2.wonderfulwave-798c6b35.eastus2.azurecontainerapps.io/`](https://ca-amos-public-eus2.wonderfulwave-798c6b35.eastus2.azurecontainerapps.io/)
+- **Internal** (password-protected — full 51-doc corpus): [`https://ca-amos-internal-eus2.wonderfulwave-798c6b35.eastus2.azurecontainerapps.io/`](https://ca-amos-internal-eus2.wonderfulwave-798c6b35.eastus2.azurecontainerapps.io/) (request access)
 
 Amos is a **hybrid LLM Wiki + RAG** chatbot. It's structured around an idea from [Karpathy's LLM Wiki gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): instead of pure RAG retrieving raw fragments per query, an LLM agent maintains a curated markdown knowledge graph as documents are ingested. Sources stay immutable; the agent paraphrases, links, and flags contradictions. A ChromaDB vector index over the same documents provides a fallback for needle-in-haystack queries and primary-source citations.
 
