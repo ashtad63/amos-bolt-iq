@@ -7,8 +7,7 @@
 
 (function () {
   const WELCOME_TEXT =
-    "Hello! I'm Amos, your guide to the Bolt iQ ultrasonic measurement system. " +
-    "How can I help you with tension measurement, device operation, or DNV certification today?";
+    "Hi, I'm Amos! Ask me anything about Bolt iQ, ultrasonic tension measurement, or DNV certification.";
 
   // Keywords that uniquely identify our starter card labels.
   const STARTER_LABEL_PATTERN = /(What is Bolt iQ|Why choose Predictant|Bi-wave vs|DNV-certified)/i;

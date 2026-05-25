@@ -1,5 +1,11 @@
 /* Amos — custom UI tweaks layered on Chainlit 1.3 (dark theme) */
 
+/* Import a serif similar to claude.ai's "Copernicus" — closest free option is
+   Source Serif 4 (Adobe, on Google Fonts). It carries the same warm, slightly
+   condensed feel. The font stack falls through to Copernicus (in case the
+   browser has it) then to other serifs. */
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap");
+
 /* ============================================================
    1) Header logo — large, full-width, no clipping
    ============================================================ */
@@ -16,38 +22,38 @@ header div:has(> img) {
 header img,
 header img[src*="logo"],
 header img[alt*="logo" i] {
-  height: 56px !important;
-  max-height: 56px !important;
+  height: 72px !important;
+  max-height: 72px !important;
   width: auto !important;
-  max-width: 360px !important;
-  min-width: 260px !important;
+  max-width: 420px !important;
+  min-width: 280px !important;
   object-fit: contain !important;
   cursor: pointer;
   transition: opacity 120ms ease;
 }
 header img:hover { opacity: 0.85; }
 
-/* Give the header itself enough vertical room for the bigger logo */
+/* Header itself: more vertical room for the bigger logo */
 header {
-  padding: 10px 16px !important;
-  min-height: 76px !important;
+  padding: 12px 20px !important;
+  min-height: 96px !important;
   align-items: center !important;
 }
 
 /* ============================================================
-   2) Welcome banner (injected by custom.js) — large, prominent
+   2) Welcome banner — claude.ai-style serif heading
    ============================================================ */
 #amos-welcome {
   text-align: center;
-  font-size: 1.35rem;
-  line-height: 1.5;
-  max-width: 720px;
-  margin: 0 auto 2rem auto;
+  font-family: "Copernicus", "Source Serif 4", "Source Serif Pro", "Cormorant Garamond", Georgia, serif;
+  font-size: 1.85rem;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  max-width: 780px;
+  margin: 0 auto 2.5rem auto;
   padding: 0 1.5rem;
   color: #ececec;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  /* Subtle reveal animation so it doesn't pop in jarringly */
+  font-weight: 400;
   animation: amos-fade-in 280ms ease-out;
 }
 @keyframes amos-fade-in {
@@ -58,16 +64,13 @@ header {
 /* ============================================================
    3) Center the welcome + starters block vertically
    ============================================================ */
-/* Push the empty-state group toward the middle of the viewport */
 #amos-empty-wrap {
-  margin-top: 12vh;
+  margin-top: 10vh;
 }
 
 /* ============================================================
-   4) Starter cards — no icon, no text truncation, wider boxes
+   4) Starter cards — no icon, no truncation, wider boxes
    ============================================================ */
-/* Hide any icon img inside the starter cards (we no longer set icon=)
-   but Chainlit may still render a placeholder. */
 button img[src*="avatar"],
 [role="button"] img[src*="avatar"],
 button[class*="starter" i] img,
@@ -76,7 +79,6 @@ button[class*="starter" i] img,
   display: none !important;
 }
 
-/* Allow the card text to wrap onto two lines instead of truncating */
 [class*="starter" i] button,
 [class*="Starter" i] button,
 [class*="starter" i] [role="button"],
@@ -103,18 +105,24 @@ button[class*="starter" i] img,
 }
 
 /* ============================================================
-   5) Hide Chainlit's empty-state assistant avatar (the lone dog
-   floating above the starters) — the welcome banner replaces it.
+   5) Empty-state assistant avatar — make it BIG and prominent
+   (Chainlit shows an avatar in the middle of the empty state;
+   we want the new dog SVG to be a focal point.)
    ============================================================ */
-#amos-empty-wrap > [class*="avatar" i]:first-child,
-[data-test-id="welcome-screen"] > [class*="avatar" i]:first-child {
-  display: none !important;
+/* Any avatar img in the page body that isn't inside a starter card */
+main img[src*="avatars/amos"],
+main img[src*="/avatars/amos"],
+[class*="welcome" i] img,
+[class*="Welcome" i] img,
+[class*="empty" i] img[src*="amos"] {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
 }
 
-/* ============================================================
-   6) Avatar in chat replies — render the new dog SVG larger
-   ============================================================ */
-img[src*="avatars/amos"] {
-  width: 36px !important;
-  height: 36px !important;
+/* Avatar next to chat replies — smaller, but still prominent */
+[class*="message" i] img[src*="avatars/amos"],
+[class*="Message" i] img[src*="avatars/amos"] {
+  width: 40px !important;
+  height: 40px !important;
 }

@@ -1,20 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" preserveAspectRatio="xMinYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
   <defs>
-    <linearGradient id="purpleGrad-l" gradientUnits="userSpaceOnUse" x1="240" y1="20" x2="0" y2="180">
+    <linearGradient id="markPurpleGrad-l" gradientUnits="userSpaceOnUse" x1="800" y1="0" x2="0" y2="800">
       <stop offset="0%" stop-color="#80198C"/>
       <stop offset="35%" stop-color="#4B1675"/>
       <stop offset="70%" stop-color="#221A69"/>
       <stop offset="100%" stop-color="#163A8A"/>
     </linearGradient>
-    <linearGradient id="cyanGrad-l" gradientUnits="userSpaceOnUse" x1="0" y1="220" x2="180" y2="0">
+
+    <linearGradient id="markCyanGrad-l" gradientUnits="userSpaceOnUse" x1="0" y1="1000" x2="800" y2="0">
       <stop offset="0%" stop-color="#194B9C"/>
       <stop offset="25%" stop-color="#00AEEF"/>
       <stop offset="75%" stop-color="#00AEEF"/>
       <stop offset="100%" stop-color="#3D309B"/>
     </linearGradient>
+
+    <linearGradient id="textGrad-l" gradientUnits="userSpaceOnUse" x1="300" y1="0" x2="1100" y2="0">
+      <stop offset="0%" stop-color="#2A195E"/>
+      <stop offset="50%" stop-color="#1A184D"/>
+      <stop offset="100%" stop-color="#1D164D"/>
+    </linearGradient>
   </defs>
 
-  <g transform="translate(10,28) scale(0.22)">
+  <g transform="translate(100, 80) scale(0.24)">
     <path d="M 800,0
              A 300,300 0 0,1 800,600
              L 200,600
@@ -24,7 +31,8 @@
              L 800,400
              A 100,100 0 0,0 800,200
              Z"
-          fill="url(#purpleGrad-l)"/>
+          fill="url(#markPurpleGrad-l)"/>
+
     <polygon points="0,800
                      0,1000
                      600,1000
@@ -33,8 +41,8 @@
                      800,200
                      400,200
                      400,800"
-             fill="url(#cyanGrad-l)"/>
+             fill="url(#markCyanGrad-l)"/>
   </g>
 
-  <text x="270" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="180" font-weight="600" fill="#1a1a3a" letter-spacing="-3">Predictant</text>
+  <text x="320" y="275" font-family="Georgia, 'Times New Roman', serif" font-size="150" font-weight="bold" letter-spacing="-1" fill="url(#textGrad-l)">Predictant</text>
 </svg>
