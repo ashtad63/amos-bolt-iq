@@ -35,14 +35,11 @@ if ENABLE_PASSWORD_GATE:
 
 @cl.on_chat_start
 async def on_chat_start() -> None:
+    # Initialize per-session history. NO welcome message — Chainlit shows
+    # chainlit.md + the starter buttons on an empty conversation, which is
+    # the richer landing experience. If we send a message here, starters
+    # are suppressed.
     cl.user_session.set("history", [])
-
-    welcome = (
-        "Woof — I'm **Amos**, a guide-dog chatbot for ultrasonic bolt-tension measurement, "
-        "with a soft spot for Predictant's Bolt iQ. Ask me anything about bolt preload, "
-        "ultrasonic time-of-flight, DNV certification, or how Bolt iQ measures tension directly."
-    )
-    await cl.Message(content=welcome).send()
 
 
 @cl.set_starters
