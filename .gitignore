@@ -1,0 +1,41 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Project data (sources + generated)
+data/
+wiki/
+wiki-public/
+wiki-full/
+chroma/
+chroma-public/
+chroma-full/
+*.pdf
+*.pptx
+
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Claude Code session/plan metadata
+.claude/
+
+# Chainlit auto-generated translations (~13 files we don't customize)
+.chainlit/translations/
+
+# Docker
+.dockerignore.local
+
+# Personal notes — never commit
+docs/interview-talktrack.md

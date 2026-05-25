@@ -1,0 +1,53 @@
+{
+  "description": "Explicit list of Predictant-owned documents cleared for public sharing. Only these go into the amos-public deployment. To add a doc: drop the file in data/predictant/ and add its ID + filename here.",
+  "documents": [
+    {
+      "id": "handout-introducing-bolt-iq",
+      "filename": "Handout-Introducing-Bolt-iQ.pdf",
+      "title": "Introducing Bolt iQ — Handout",
+      "kind": "marketing"
+    },
+    {
+      "id": "pitchdeck-introducing-bolt-iq",
+      "filename": "Pitchdeck-Introducing-Bolt-iQ.pdf",
+      "title": "Introducing Bolt iQ — Pitch Deck",
+      "kind": "marketing"
+    },
+    {
+      "id": "dnv-certification",
+      "filename": "DNV-Certification.pdf",
+      "title": "DNV Certification — Bolt iQ Accuracy",
+      "kind": "certification"
+    },
+    {
+      "id": "boltcheck-lifewind-dtu-final-report",
+      "filename": "BoltCheck Final_Report_LifeWind_DTU.pdf",
+      "title": "BoltCheck — LifeWind DTU Final Report",
+      "kind": "joint-project-report"
+    },
+    {
+      "id": "us-patent-5970798-ultrasonic-bolt-gage",
+      "filename": "United States Patent - Bolt Gage.pdf",
+      "title": "US Patent 5,970,798 — Ultrasonic Bolt Gage (NASA, 1999, expired)",
+      "kind": "patent"
+    },
+    {
+      "id": "windtech-international-improved-bolt-tension",
+      "filename": "Windtech-International-Improved-Bolt-Tension-Measurement.pdf",
+      "title": "Windtech International — Improved Bolt-Tension Measurement",
+      "kind": "industry-publication"
+    },
+    {
+      "id": "wind-europe-2025-poster",
+      "filename": "Wind-Europe-2025-Poster.pdf",
+      "title": "Wind Europe 2025 — Predictant Poster",
+      "kind": "conference-poster"
+    },
+    {
+      "id": "wind-europe-2025-ml-implementation",
+      "filename": "Wind-Europe-2025-Implementation-of-Machine-Learning-in-Bolt-Tension-Measurements.pdf",
+      "title": "Wind Europe 2025 — Implementation of Machine Learning in Bolt-Tension Measurements",
+      "kind": "conference-paper"
+    }
+  ]
+}

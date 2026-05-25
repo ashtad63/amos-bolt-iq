@@ -1,0 +1,43 @@
+[project]
+name = "amos-bolt-iq"
+version = "0.1.0"
+description = "Amos — Wiki+RAG hybrid chatbot over ultrasonic bolt-tension corpus"
+requires-python = ">=3.11"
+readme = "README.md"
+authors = [{ name = "Ashtad Javanmardi" }]
+
+dependencies = [
+  # LLM + embeddings
+  "openai>=1.40,<2.0",
+  "tiktoken>=0.7",
+  "tenacity>=8.2",
+  # Document extraction
+  "pypdf>=4.3",
+  "python-pptx>=1.0",
+  # Vector store
+  "chromadb>=0.5",
+  # Chat framework
+  "chainlit>=1.1,<2.0",
+  # Rate limiting
+  "slowapi>=0.1.9",
+  # Azure
+  "azure-storage-blob>=12.20",
+  "azure-monitor-opentelemetry>=1.6",
+  # Utilities
+  "rich>=13.7",
+  "python-dotenv>=1.0",
+  "pydantic>=2.7,<2.10",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.6",
+  "pytest>=8.3",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ingest*", "rag*", "app*"]
