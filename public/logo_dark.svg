@@ -14,7 +14,7 @@
       <stop offset="100%" stop-color="#3D309B"/>
     </linearGradient>
 
-    <!-- Dark-theme text: light/white gradient (mirror of the dark navy gradient used for light theme) -->
+    <!-- Dark-theme text: light/white gradient -->
     <linearGradient id="textGrad-d" gradientUnits="userSpaceOnUse" x1="300" y1="0" x2="1100" y2="0">
       <stop offset="0%" stop-color="#ffffff"/>
       <stop offset="50%" stop-color="#e8e8f5"/>
@@ -22,7 +22,11 @@
     </linearGradient>
   </defs>
 
-  <g transform="translate(100, 80) scale(0.24)">
+  <!-- Outlined / wireframe variant to match Predictant's LinkedIn brand mark.
+       Same two paths, but stroked (no fill) at stroke-width 80 (in source
+       coords; ~19 visual px at the scale=0.24 transform). -->
+  <g transform="translate(100, 80) scale(0.24)" fill="none" stroke-linejoin="miter" stroke-linecap="butt">
+    <!-- Upper-right "P" outline -->
     <path d="M 800,0
              A 300,300 0 0,1 800,600
              L 200,600
@@ -32,8 +36,9 @@
              L 800,400
              A 100,100 0 0,0 800,200
              Z"
-          fill="url(#markPurpleGrad-d)"/>
+          stroke="url(#markPurpleGrad-d)" stroke-width="80"/>
 
+    <!-- Lower-left square outline (the inner cyan polygon) -->
     <polygon points="0,800
                      0,1000
                      600,1000
@@ -42,7 +47,7 @@
                      800,200
                      400,200
                      400,800"
-             fill="url(#markCyanGrad-d)"/>
+             stroke="url(#markCyanGrad-d)" stroke-width="80"/>
   </g>
 
   <text x="320" y="275" font-family="Georgia, 'Times New Roman', serif" font-size="150" font-weight="bold" letter-spacing="-1" fill="url(#textGrad-d)">Predictant</text>
