@@ -1,47 +1,65 @@
 /* Amos — custom UI tweaks layered on Chainlit 1.3 (dark theme) */
 
-/* Import a serif similar to claude.ai's "Copernicus" — closest free option is
-   Source Serif 4 (Adobe, on Google Fonts). It carries the same warm, slightly
-   condensed feel. The font stack falls through to Copernicus (in case the
-   browser has it) then to other serifs. */
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap");
 
 /* ============================================================
-   1) Header logo — large, full-width, no clipping
+   1) Logo — Chainlit applies an inline style `max-height: 25px`
+   to the <img alt="logo">. We override with !important on a direct
+   attribute selector (beats non-important inline styles).
    ============================================================ */
-header,
-header > *,
-header > div,
-header a,
-header a:has(> img),
-header div:has(> img) {
-  overflow: visible !important;
-  max-width: none !important;
-}
-
-header img,
-header img[src*="logo"],
-header img[alt*="logo" i] {
+img[alt="logo"] {
   height: 72px !important;
   max-height: 72px !important;
   width: auto !important;
   max-width: 420px !important;
-  min-width: 280px !important;
+  min-width: 240px !important;
+  margin-left: 16px !important;
   object-fit: contain !important;
   cursor: pointer;
   transition: opacity 120ms ease;
 }
-header img:hover { opacity: 0.85; }
+img[alt="logo"]:hover { opacity: 0.85; }
 
-/* Header itself: more vertical room for the bigger logo */
-header {
-  padding: 12px 20px !important;
+/* Give the logo's MUI parent container room so the bigger image isn't clipped */
+.MuiStack-root:has(> .MuiBox-root > img[alt="logo"]),
+.MuiBox-root:has(> img[alt="logo"]) {
+  overflow: visible !important;
+  max-width: none !important;
+  min-height: 88px !important;
+}
+
+/* Top toolbar / drawer header — match the new logo height */
+.MuiDrawer-root .MuiPaper-root > .MuiStack-root:first-child {
   min-height: 96px !important;
-  align-items: center !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 }
 
 /* ============================================================
-   2) Welcome banner — claude.ai-style serif heading
+   2) Empty-state assistant avatar (MuiAvatar with src=/avatars/default
+   or /avatars/amos). Default-size is 48px; bump to 120px and recenter.
+   ============================================================ */
+.MuiAvatar-root:has(> img.MuiAvatar-img) {
+  width: 128px !important;
+  height: 128px !important;
+}
+.MuiAvatar-root > img.MuiAvatar-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* But shrink the avatar back to ~40px when it appears next to a chat
+   message bubble (so reply lines don't have huge inline avatars). */
+[class*="message" i] .MuiAvatar-root,
+[class*="Message" i] .MuiAvatar-root,
+.MuiAvatar-root[class*="message" i] {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+/* ============================================================
+   3) Welcome banner — claude.ai-style serif heading
    ============================================================ */
 #amos-welcome {
   text-align: center;
@@ -61,11 +79,8 @@ header {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================================
-   3) Center the welcome + starters block vertically
-   ============================================================ */
 #amos-empty-wrap {
-  margin-top: 10vh;
+  margin-top: 4vh;
 }
 
 /* ============================================================
@@ -73,8 +88,7 @@ header {
    ============================================================ */
 button img[src*="avatar"],
 [role="button"] img[src*="avatar"],
-button[class*="starter" i] img,
-[class*="starter" i] button img,
+[class*="starter" i] img,
 [class*="Starter" i] img {
   display: none !important;
 }
@@ -83,9 +97,9 @@ button[class*="starter" i] img,
 [class*="Starter" i] button,
 [class*="starter" i] [role="button"],
 [class*="Starter" i] [role="button"] {
-  min-width: 200px !important;
-  width: 200px !important;
-  min-height: 100px !important;
+  min-width: 220px !important;
+  width: 220px !important;
+  min-height: 110px !important;
   padding: 18px 14px !important;
   white-space: normal !important;
 }
@@ -102,27 +116,4 @@ button[class*="starter" i] img,
   display: block !important;
   font-size: 0.95rem !important;
   line-height: 1.35 !important;
-}
-
-/* ============================================================
-   5) Empty-state assistant avatar — make it BIG and prominent
-   (Chainlit shows an avatar in the middle of the empty state;
-   we want the new dog SVG to be a focal point.)
-   ============================================================ */
-/* Any avatar img in the page body that isn't inside a starter card */
-main img[src*="avatars/amos"],
-main img[src*="/avatars/amos"],
-[class*="welcome" i] img,
-[class*="Welcome" i] img,
-[class*="empty" i] img[src*="amos"] {
-  width: 120px !important;
-  height: 120px !important;
-  border-radius: 50% !important;
-}
-
-/* Avatar next to chat replies — smaller, but still prominent */
-[class*="message" i] img[src*="avatars/amos"],
-[class*="Message" i] img[src*="avatars/amos"] {
-  width: 40px !important;
-  height: 40px !important;
 }
