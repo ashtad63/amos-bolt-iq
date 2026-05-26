@@ -1,4 +1,4 @@
-FROM python:3.11-slim-bookworm AS builder
+FROM mcr.microsoft.com/mirror/docker/library/python:3.11-slim-bookworm AS builder
 WORKDIR /build
 RUN apt-get update && apt-get install -y --no-install-recommends gcc g++ && rm -rf /var/lib/apt/lists/*
 COPY pyproject.toml ./
@@ -18,7 +18,7 @@ RUN pip install --upgrade pip && \
       "python-dotenv>=1.0" \
       "pydantic>=2.7,<2.10"
 
-FROM python:3.11-slim-bookworm
+FROM mcr.microsoft.com/mirror/docker/library/python:3.11-slim-bookworm
 WORKDIR /app
 
 # Variant: 'public' (7 cleared docs) or 'full' (all 51).
