@@ -101,10 +101,13 @@
 
   // ---------------------------------------------------------------
   // 3) Patch the chat-input placeholder.
+  //    IMPORTANT: only target the chat <textarea>. We must NOT touch
+  //    the login form's <input type="text"> for the username, or it
+  //    will show "How can I help you today?" instead of "Username".
   // ---------------------------------------------------------------
   function patchPlaceholder() {
     const target = "How can I help you today?";
-    document.querySelectorAll("textarea, input[type='text']").forEach((el) => {
+    document.querySelectorAll("textarea").forEach((el) => {
       const cur = el.getAttribute("placeholder");
       if (cur && cur !== target) el.setAttribute("placeholder", target);
     });
