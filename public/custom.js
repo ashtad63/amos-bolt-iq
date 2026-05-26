@@ -100,16 +100,23 @@
   }
 
   // ---------------------------------------------------------------
-  // 3) Patch the chat-input placeholder.
-  //    IMPORTANT: only target the chat <textarea>. We must NOT touch
-  //    the login form's <input type="text"> for the username, or it
-  //    will show "How can I help you today?" instead of "Username".
+  // 3) Patch placeholders.
+  //    Chat <textarea> gets the friendly chat prompt.
+  //    The login form's email input shares the same i18n key as the chat
+  //    placeholder in Chainlit 1.3, so React renders "How can I help you
+  //    today?" on it too. We explicitly override it to "Username" — the
+  //    @cl.password_auth_callback accepts any string.
   // ---------------------------------------------------------------
   function patchPlaceholder() {
-    const target = "How can I help you today?";
+    const chatTarget = "How can I help you today?";
     document.querySelectorAll("textarea").forEach((el) => {
       const cur = el.getAttribute("placeholder");
-      if (cur && cur !== target) el.setAttribute("placeholder", target);
+      if (cur && cur !== chatTarget) el.setAttribute("placeholder", chatTarget);
+    });
+    const emailTarget = "Username";
+    document.querySelectorAll("input[type='text'][name='email']").forEach((el) => {
+      const cur = el.getAttribute("placeholder");
+      if (cur !== emailTarget) el.setAttribute("placeholder", emailTarget);
     });
   }
 
