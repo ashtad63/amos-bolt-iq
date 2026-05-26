@@ -9,36 +9,23 @@
   const WELCOME_TEXT =
     "Hi, I'm Amos! Ask me anything about Bolt iQ, ultrasonic tension measurement, or DNV certification.";
 
-  // Keywords that uniquely identify our starter card labels.
-  const STARTER_LABEL_PATTERN = /(What is Bolt iQ|Why choose Predictant|Bi-wave vs|DNV-certified)/i;
-
   // ---------------------------------------------------------------
   // 1) Inject the welcome banner above the starter cards.
+  //    Chainlit's starter buttons have ids like `starter-what-is-bolt-iq?`.
+  //    Using the IDs (not text content) avoids false positives in the
+  //    sidebar chat-history where prior starter labels also appear.
   // ---------------------------------------------------------------
   function findStartersContainer() {
-    // Find any element whose text contains a known starter label
-    const labelEls = Array.from(document.querySelectorAll("button, [role='button'], a, div"))
-      .filter((el) => STARTER_LABEL_PATTERN.test(el.textContent || ""));
-    if (labelEls.length === 0) return null;
-
-    // The smallest element matching is the card itself. Climb until we find
-    // a parent that contains multiple matches (the grid/row container).
-    let card = labelEls[0];
-    // Pick the smallest matching element (the card, not its parents)
-    for (const el of labelEls) {
-      if (el.contains(card) === false && card.contains(el) === false) continue;
-      if (el.children.length < card.children.length || card === labelEls[0]) {
-        // pick smaller
-        if ((el.textContent || "").length < (card.textContent || "").length) card = el;
-      }
-    }
-    // Climb to the parent that contains at least 2 starter labels
+    const cards = Array.from(document.querySelectorAll('button[id^="starter-"]'));
+    if (cards.length === 0) return null;
+    // The starter cards are siblings inside a MuiGrid container (one
+    // ancestor up from the card → grid-item; two ancestors up → grid).
+    const card = cards[0];
+    // Walk up until the ancestor contains all `cards.length` starter buttons.
     let container = card.parentElement;
     while (container && container !== document.body) {
-      const matches = Array.from(container.querySelectorAll("*")).filter((el) =>
-        STARTER_LABEL_PATTERN.test(el.textContent || "")
-      );
-      if (matches.length >= 2) return container;
+      const inside = container.querySelectorAll('button[id^="starter-"]');
+      if (inside.length === cards.length) return container;
       container = container.parentElement;
     }
     return card.parentElement;

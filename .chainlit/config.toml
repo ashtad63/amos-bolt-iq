@@ -70,10 +70,10 @@ github = "https://github.com/ashtad63/amos-bolt-iq"
 
 # Specify a CSS file that can be used to customize the user interface.
 # The ?v= query string is a cache-buster; bump it whenever custom.css/js changes.
-custom_css = "/public/custom.css?v=12"
+custom_css = "/public/custom.css?v=13"
 
 # Specify a Javascript file that can be used to customize the user interface.
-custom_js = "/public/custom.js?v=12"
+custom_js = "/public/custom.js?v=13"
 
 # Specify a custom font url.
 # custom_font = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
