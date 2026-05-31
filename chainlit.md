@@ -18,4 +18,4 @@ Bolt preload • Ultrasonic time-of-flight • Acoustoelastic effect • Bi-wave
 
 Anything outside the corpus I was trained on. If a question doesn't fetch good citations, I'll say so honestly rather than guess.
 
-> Built for an interview by [Ashtad Javanmardi](https://github.com/ashtad63). Source on GitHub: [ashtad63/amos-bolt-iq](https://github.com/ashtad63/amos-bolt-iq).
+> Built by [Ashtad Javanmardi](https://github.com/ashtad63). Source on GitHub: [ashtad63/amos-bolt-iq](https://github.com/ashtad63/amos-bolt-iq).

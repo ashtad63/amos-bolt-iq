@@ -158,4 +158,4 @@ Code is MIT. Source PDFs are not committed — each document remains under its o
 
 ---
 
-Built as a weekend portfolio project, May 2026, by [Ashtad Javanmardi](https://github.com/ashtad63). Inspired by Andrej Karpathy's [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) idea.
+Built May 2026 by [Ashtad Javanmardi](https://github.com/ashtad63). Inspired by Andrej Karpathy's [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) idea.
