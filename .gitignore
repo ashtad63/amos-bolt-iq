@@ -43,7 +43,7 @@ Thumbs.db
 .dockerignore.local
 
 # Personal notes — never commit
-docs/interview-talktrack.md
+docs/talking-points.md
 .env.chainlit-jwt-secret
 
 # Auto-generated full manifest — rebuilt from data/ on demand

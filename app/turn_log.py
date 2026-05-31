@@ -1,7 +1,7 @@
 """Per-turn conversation logging to Azure Blob (or local file fallback).
 
-Each line is one JSON object per chat turn. Useful for showcasing during the
-interview ("here are the kinds of questions Amos got, here's a latency histogram").
+Each line is one JSON object per chat turn. Useful for reviewing usage
+("here are the kinds of questions Amos got, here's a latency histogram").
 """
 
 from __future__ import annotations
